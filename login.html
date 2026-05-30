@@ -1,34 +1,45 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
 
   <title>RatVad HUB</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
+
     *{
       margin:0;
       padding:0;
       box-sizing:border-box;
     }
 
+    html{
+      background:#04060c;
+    }
+
     body{
       font-family:'Manrope',sans-serif;
       min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      min-height:100dvh;
+
       background:
       radial-gradient(circle at top,#0d1837 0%,#060b18 45%,#04060c 100%);
+
       color:white;
       overflow:hidden;
+      position:relative;
     }
 
     .blur{
@@ -38,36 +49,59 @@
       border-radius:50%;
       background:rgba(70,110,255,.14);
       filter:blur(120px);
+
       top:-180px;
       left:50%;
       transform:translateX(-50%);
+      pointer-events:none;
     }
 
-    .wrapper{
-      width:100%;
-      max-width:390px;
-      padding:22px;
+    .page{
+      min-height:100vh;
+      min-height:100dvh;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+
+      padding:
+        max(22px, env(safe-area-inset-top))
+        20px
+        max(22px, env(safe-area-inset-bottom));
+
       position:relative;
       z-index:2;
     }
+
+    /* LOGO TOP */
 
     .logo{
       display:flex;
       align-items:center;
       justify-content:center;
       gap:12px;
-      margin-bottom:100px;
+
+      width:100%;
+
+      padding-top:8px;
+      margin-bottom:28px;
+
+      flex-shrink:0;
     }
 
     .logo-box{
       width:42px;
       height:42px;
       border-radius:13px;
+
       background:#4d7cff;
+
       display:flex;
       align-items:center;
       justify-content:center;
+
       overflow:hidden;
+
       box-shadow:0 8px 22px rgba(77,124,255,.28);
     }
 
@@ -83,29 +117,57 @@
       letter-spacing:-0.6px;
     }
 
+    /* CENTER BLOCK */
+
+    .center{
+      flex:1;
+
+      width:100%;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .wrapper{
+      width:100%;
+      max-width:390px;
+    }
+
     .card{
       width:100%;
+
       background:rgba(14,20,36,.88);
+
       border:1px solid rgba(255,255,255,.05);
+
       border-radius:26px;
+
       padding:34px 28px;
+
       backdrop-filter:blur(16px);
+
       box-shadow:0 20px 40px rgba(0,0,0,.34);
     }
 
     .title{
       text-align:center;
+
       font-size:24px;
       font-weight:600;
       letter-spacing:-0.8px;
+
       margin-bottom:10px;
     }
 
     .subtitle{
       text-align:center;
+
       color:#7e879e;
+
       font-size:13px;
       line-height:1.5;
+
       margin-bottom:26px;
       font-weight:500;
     }
@@ -113,15 +175,24 @@
     .input{
       width:100%;
       height:50px;
+
       border-radius:15px;
+
       border:1px solid rgba(255,255,255,.06);
+
       background:rgba(255,255,255,.03);
+
       outline:none;
+
       padding:0 16px;
+
       color:white;
+
       font-size:14px;
       font-family:'Manrope',sans-serif;
+
       margin-bottom:12px;
+
       transition:.2s;
     }
 
@@ -137,14 +208,20 @@
     .btn{
       width:100%;
       height:52px;
+
       border:none;
       border-radius:15px;
+
       margin-top:6px;
+
       background:#4d7cff;
+
       color:white;
+
       font-size:16px;
       font-weight:700;
       font-family:'Manrope',sans-serif;
+
       cursor:pointer;
       transition:.2s;
     }
@@ -155,26 +232,30 @@
 
     .error{
       display:none;
+
       margin-top:14px;
+
       text-align:center;
+
       color:#ff7a7a;
+
       font-size:13px;
     }
 
     .footer{
       margin-top:22px;
+
       text-align:center;
+
       color:#697186;
+
       font-size:12px;
       line-height:1.5;
+
       font-weight:500;
     }
 
     @media(max-width:480px){
-
-      .wrapper{
-        max-width:400px;
-      }
 
       .card{
         padding:30px 22px;
@@ -183,7 +264,12 @@
       .title{
         font-size:22px;
       }
+
+      .logo{
+        margin-bottom:18px;
+      }
     }
+
   </style>
 </head>
 
@@ -191,58 +277,76 @@
 
   <div class="blur"></div>
 
-  <div class="wrapper">
+  <div class="page">
+
+    <!-- TOP LOGO -->
 
     <div class="logo">
+
       <div class="logo-box">
-        <!-- logo.svg -->
-        <img src="https://raw.githubusercontent.com/TrashBagStudio/AliveCloud/ebb40c097bc30fc718876be0c96c52d501b343a3/images/logoNotBack-icon.svg" alt="">
+        <img
+          src="https://raw.githubusercontent.com/TrashBagStudio/AliveCloud/ebb40c097bc30fc718876be0c96c52d501b343a3/images/logoNotBack-icon.svg"
+          alt=""
+        >
       </div>
 
       <h1>RatVad HUB</h1>
-    </div>
-
-    <div class="card">
-
-      <div class="title">
-        Вход в личный кабинет
-      </div>
-
-      <div class="subtitle">
-        Для регистрации обратитесь к менеджеру
-      </div>
-
-      <input
-        type="text"
-        id="login"
-        class="input"
-        placeholder="Логин"
-      >
-
-      <input
-        type="password"
-        id="password"
-        class="input"
-        placeholder="Пароль"
-      >
-
-      <button class="btn" onclick="auth()">
-        Войти
-      </button>
-
-      <div class="error" id="error">
-        Неверный логин или пароль
-      </div>
-
-      <div class="footer">
-        Продолжая, вы соглашаетесь<br>
-        с пользовательским соглашением
-      </div>
 
     </div>
+
+    <!-- PERFECT CENTER -->
+
+    <div class="center">
+
+      <div class="wrapper">
+
+        <div class="card">
+
+          <div class="title">
+            Вход в личный кабинет
+          </div>
+
+          <div class="subtitle">
+            Для регистрации обратитесь к менеджеру
+          </div>
+
+          <input
+            type="text"
+            id="login"
+            class="input"
+            placeholder="Логин"
+          >
+
+          <input
+            type="password"
+            id="password"
+            class="input"
+            placeholder="Пароль"
+          >
+
+          <button class="btn" onclick="auth()">
+            Войти
+          </button>
+
+          <div class="error" id="error">
+            Неверный логин или пароль
+          </div>
+
+          <div class="footer">
+            Продолжая, вы соглашаетесь<br>
+            с пользовательским соглашением
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
 
   <script>
+
     const users = [
       {
         login: "alive-net",
@@ -282,6 +386,7 @@
         error.style.display = 'block';
       }
     }
+
   </script>
 
 </body>
